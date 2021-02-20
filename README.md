@@ -14,7 +14,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
 1- Variables and basic types in Julia:
 
 ```julia
-Pluto.run(notebook = "[1-variables_and_basic_types.jl](https://raw.githubusercontent.com/VEZY/julia_course/main/1-variables_and_basic_types.jl)")
+Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/1-variables_and_basic_types.jl")
 ```
 
 ## Usage

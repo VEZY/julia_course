@@ -211,9 +211,6 @@ promote(1.0,1)
 # ╔═╡ 8c1e4b90-63dd-11eb-34a3-0d118a0eb642
 md"Here `promote()` returned both arguments as floating point numbers."
 
-# ╔═╡ a11f3b1e-3fed-4ad5-9aaf-76fad3ebbd71
-
-
 # ╔═╡ Cell order:
 # ╟─e5b53410-63cf-11eb-2532-358a68b59eb9
 # ╟─16f1e0f0-63d0-11eb-2ee4-8f8be24866e8
@@ -246,7 +243,7 @@ md"Here `promote()` returned both arguments as floating point numbers."
 # ╟─53e9e240-63d6-11eb-00dc-098c64e573f1
 # ╠═61ffb030-63d6-11eb-059d-e912b2c828fb
 # ╟─1204e040-63d7-11eb-2c61-e3f212329a44
-# ╠═72e5b520-63d6-11eb-0463-3bd1d3643d15
+# ╟─72e5b520-63d6-11eb-0463-3bd1d3643d15
 # ╠═7b9537e0-63d6-11eb-1d93-d3e253614910
 # ╟─19752c40-63d7-11eb-0500-11c3318c9319
 # ╟─48cab050-63dc-11eb-2f06-651fa9acbd54
@@ -279,4 +276,3 @@ md"Here `promote()` returned both arguments as floating point numbers."
 # ╟─18016940-63dd-11eb-1232-f15f2ce37d58
 # ╠═41b008f0-63dd-11eb-0975-7fbab120ad8b
 # ╟─8c1e4b90-63dd-11eb-34a3-0d118a0eb642
-# ╠═a11f3b1e-3fed-4ad5-9aaf-76fad3ebbd71

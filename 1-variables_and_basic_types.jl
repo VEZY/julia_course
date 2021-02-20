@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.12
+# v0.12.20
 
 using Markdown
 using InteractiveUtils
@@ -13,7 +13,7 @@ md"## Variables"
 # ╔═╡ 31972af0-63d0-11eb-3e22-bb3370a9e40d
 md"""A variable is simply a name associated to any type of value. 
 
-To declare a new variable, we use `=`, also named asignment operator:"""
+To declare a new variable, we use `=`, also named assignment operator:"""
 
 # ╔═╡ 9d83cca0-63d0-11eb-0346-751060e8cab5
 a = 1
@@ -211,6 +211,9 @@ promote(1.0,1)
 # ╔═╡ 8c1e4b90-63dd-11eb-34a3-0d118a0eb642
 md"Here `promote()` returned both arguments as floating point numbers."
 
+# ╔═╡ a11f3b1e-3fed-4ad5-9aaf-76fad3ebbd71
+
+
 # ╔═╡ Cell order:
 # ╟─e5b53410-63cf-11eb-2532-358a68b59eb9
 # ╟─16f1e0f0-63d0-11eb-2ee4-8f8be24866e8
@@ -276,3 +279,4 @@ md"Here `promote()` returned both arguments as floating point numbers."
 # ╟─18016940-63dd-11eb-1232-f15f2ce37d58
 # ╠═41b008f0-63dd-11eb-0975-7fbab120ad8b
 # ╟─8c1e4b90-63dd-11eb-34a3-0d118a0eb642
+# ╠═a11f3b1e-3fed-4ad5-9aaf-76fad3ebbd71

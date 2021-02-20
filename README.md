@@ -59,7 +59,7 @@ Pluto.run(notebook = "1-variables_and_basic_types.jl")
 And a third way is by using a notebook directly from the internet by passing its link, *e.g.*:
 
 ```julia
-Pluto.run(notebook = "[1-variables_and_basic_types.jl](https://raw.githubusercontent.com/VEZY/julia_course/main/1-variables_and_basic_types.jl)")
+Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/1-variables_and_basic_types.jl")
 ```
 
 Watch [this video](https://www.youtube.com/watch?v=jdEqGOv8ycc&list=PLLiJ249IkzRFxZGALbKy75_ZyHxYCUmuk&index=4) if you need more details about how to use Pluto.

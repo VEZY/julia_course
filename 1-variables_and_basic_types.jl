@@ -18,7 +18,7 @@ To declare a new variable, we use `=`, also named assignment operator:"""
 # ╔═╡ 9d83cca0-63d0-11eb-0346-751060e8cab5
 a = 1
 
-# ╔═╡ a4804830-63d0-11eb-01f7-bbaa888fac09
+# ╔═╡ ffed727d-b072-4797-9667-dc3a1c7e0109
 a
 
 # ╔═╡ ba8fdd70-63d0-11eb-0565-f3e77f3f802f
@@ -39,8 +39,8 @@ See by yourself:
 α = 2
 
 # ╔═╡ 2a77d330-63d2-11eb-16c3-d3be6a6d9975
-md"α is written by typing `\alpha` and then `ctrl+tab`.
-`ctrl+tab` is used for autocompletion. We can even use emojis: 
+md"α is written by typing `\alpha` and then `ctrl+enter`.
+`ctrl+enter` is used for autocompletion. We can even use emojis: 
 "
 
 # ╔═╡ f85e81f0-63d1-11eb-2385-0196982bc487
@@ -145,6 +145,9 @@ md"### Conversion"
 # ╔═╡ c4fdd4e0-63d7-11eb-338c-997af2ea699f
 md"Some types can be converted one into another. To do so, you can use `convert()`, or the name of the type to convert into as follows:"
 
+# ╔═╡ 34e61ce5-96ad-4a99-a0e3-57ee579834a3
+typeof(cars)
+
 # ╔═╡ d40d9330-63d7-11eb-2ca7-95207f940b2e
 convert(Float64,cars)
 
@@ -167,7 +170,7 @@ md"...and back into an integer using `parse()`:"
 parse(Int,cars_string)
 
 # ╔═╡ 9f525c00-63d9-11eb-08f0-c1e0b1dd9b91
-md"Some types cannot be converted into another without loss of information. For example what if you convert a double like `2.2` into an integer? "
+md"Some types cannot be converted into another without loss of information. For example what if you convert a float like `2.2` into an integer? "
 
 # ╔═╡ 89ce2162-63da-11eb-149a-8d58c6c324ed
 Int(2.2)
@@ -215,8 +218,8 @@ md"Here `promote()` returned both arguments as floating point numbers."
 # ╟─e5b53410-63cf-11eb-2532-358a68b59eb9
 # ╟─16f1e0f0-63d0-11eb-2ee4-8f8be24866e8
 # ╟─31972af0-63d0-11eb-3e22-bb3370a9e40d
-# ╟─9d83cca0-63d0-11eb-0346-751060e8cab5
-# ╠═a4804830-63d0-11eb-01f7-bbaa888fac09
+# ╠═9d83cca0-63d0-11eb-0346-751060e8cab5
+# ╠═ffed727d-b072-4797-9667-dc3a1c7e0109
 # ╟─ba8fdd70-63d0-11eb-0565-f3e77f3f802f
 # ╠═a8247100-63d0-11eb-0442-11949579c4ba
 # ╟─f1641eb0-63d0-11eb-2ed0-d5ab1ce695ae
@@ -238,22 +241,23 @@ md"Here `promote()` returned both arguments as floating point numbers."
 # ╠═fe28579e-63d6-11eb-31c6-59b910298cc2
 # ╟─ccd15a10-63d8-11eb-2cce-9b5b18f2f003
 # ╟─3279b400-63d6-11eb-093a-4539f1254a83
-# ╟─3d9d6b0e-63d6-11eb-2cc1-39a76f290513
-# ╟─0d5dc660-63d7-11eb-0458-29b554125fce
+# ╠═3d9d6b0e-63d6-11eb-2cc1-39a76f290513
+# ╠═0d5dc660-63d7-11eb-0458-29b554125fce
 # ╟─53e9e240-63d6-11eb-00dc-098c64e573f1
 # ╠═61ffb030-63d6-11eb-059d-e912b2c828fb
-# ╟─1204e040-63d7-11eb-2c61-e3f212329a44
+# ╠═1204e040-63d7-11eb-2c61-e3f212329a44
 # ╟─72e5b520-63d6-11eb-0463-3bd1d3643d15
 # ╠═7b9537e0-63d6-11eb-1d93-d3e253614910
-# ╟─19752c40-63d7-11eb-0500-11c3318c9319
+# ╠═19752c40-63d7-11eb-0500-11c3318c9319
 # ╟─48cab050-63dc-11eb-2f06-651fa9acbd54
 # ╠═69283610-63dc-11eb-1d97-25d73d0ce439
 # ╟─27efd680-63d7-11eb-0701-67d7c4fc2847
 # ╟─5c08ef5e-63d7-11eb-34d0-dfa5f605cc6c
-# ╟─6cf7f500-63d7-11eb-285a-4db31a47e386
+# ╠═6cf7f500-63d7-11eb-285a-4db31a47e386
 # ╟─91be39d0-63dc-11eb-3275-f17059662b87
 # ╟─934d5790-63d7-11eb-3ff1-49bc42858003
 # ╟─c4fdd4e0-63d7-11eb-338c-997af2ea699f
+# ╠═34e61ce5-96ad-4a99-a0e3-57ee579834a3
 # ╠═d40d9330-63d7-11eb-2ca7-95207f940b2e
 # ╟─b458b410-63d8-11eb-3860-8dca66bf91c7
 # ╠═b3875a50-63d8-11eb-25dc-f751d868901d

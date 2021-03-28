@@ -80,7 +80,7 @@ md"We can directly instantiate an `Array` by providing values:"
 md"Or using the function directly:"
 
 # ╔═╡ 78959d1d-b522-4567-8353-73fac5e9d120
-Int64[1.0;2.0]
+Int64[1.0,2.0]
 
 # ╔═╡ c45e1610-c944-40e5-b7c6-c48c8bd1c626
 md"Julia tries to promote the values by default to specialise the `Array`, meaning making an `Array` of one specific type:"
@@ -202,7 +202,7 @@ mat[1,:]
 md"or to get a range of values:"
 
 # ╔═╡ 5e2387f1-5dd7-4b49-91e4-96d057ed31fa
-mat[2:3,:]
+mat[1:3,:]
 
 # ╔═╡ 60efc230-9ada-4de9-896a-c5d37d7fa9e0
 md"or `end` to get the last value:"
@@ -241,6 +241,7 @@ md"We can add elements to the end of an array using `push!`:"
 begin
 	vectmp1 = copy(vec)
 	push!(vectmp1,10)
+	vectmp1
 end
 
 # ╔═╡ d94f73bb-0e3f-42ea-8e8f-7e3e982836fa
@@ -290,7 +291,7 @@ end
 # ╔═╡ 4d7f948d-666d-4038-9a68-fe2a8ab09b82
 begin
 	vectmp6 = copy(vec)
-	insert!(vectmp6,2,15)
+	deleteat!(vectmp6,2)
 end
 
 # ╔═╡ 7d06e1cb-ebe9-42cb-a717-f5ee01f3492a
@@ -324,7 +325,7 @@ begin
 end
 
 # ╔═╡ 8d8e2770-ffb7-4c4b-a624-786edac752e4
-md"For more complex arrays we can use `hcat!` and `vcat!` (and it works with vectors too):"
+md"For more complex arrays we can use `hcat` and `vcat` (and it works with vectors too):"
 
 # ╔═╡ 6a8e56f1-f797-45d3-896e-64d5c39f6023
 hcat(vec,vec)

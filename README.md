@@ -11,11 +11,17 @@ You can use the notebooks either by using the direct links provided here, or by 
 
 To use the direct link, open julia, then type `using Pluto`, and execute the line of code provided below. If you need to install Pluto first, see below.
 
-1- Variables and basic types in Julia:
+1. Variables and basic types in Julia
 
-```julia
-Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/1-variables_and_basic_types.jl")
-```
+    ```julia
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/1-variables_and_basic_types.jl")
+    ```
+
+2. Arrays
+
+    ```julia
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/2-arrays.jl")
+    ```
 
 ## Usage
 
@@ -79,7 +85,7 @@ Then, unzip the file, and open the directory in VS Code, or just open Julia in t
 Finally, enter the package manager mode in Julia by pressing `]` in the REPL and run the following command:
 
 ```julia
-activate
+activate .
 instantiate
 ```
 

@@ -244,6 +244,14 @@ begin
 	vectmp1
 end
 
+# ╔═╡ b0d77b3e-9674-449a-be5f-a5790a4d4089
+md"""
+
+!!! note
+
+	We would simply use `push!(vec,10)` outside of a Pluto notebook (*e.g.* in a Julia script). But Pluto doesn't like when we mutate a variable (meaning changing its value) at several different places in the notebook. So we apply a trick here, were we put the code in a `begin ... end` statement to make it a single statement, and apply `push!` on a copy of the vector (here `vectmp1`). If it is too complicated, no worries, just consider this big blob of code just as if it was only written `push!(vec,10)`. 
+"""
+
 # ╔═╡ d94f73bb-0e3f-42ea-8e8f-7e3e982836fa
 md"And remove the last element using `pop!`:"
 
@@ -255,7 +263,10 @@ begin
 end
 
 # ╔═╡ f530fe3b-1b0d-472a-b330-d12a46e68c22
-md"Note the `!` at the end of the name of the functions. Functions ending with a `!` in Julia mutate their first argument, meaning they modify it 'in-place'. Those functions generally have their non-mutating counterpart without the `!` that computes the result and return it, but don't modify the object given as the first argument. But we'll get into that in a further notebook."
+md"""
+!!! note
+	Note the `!` at the end of the name of the functions. Functions ending with a `!` in Julia mutate their first argument, meaning they modify it "in-place". Those functions generally have their non-mutating counterpart without the `!` that computes the result and return it, but don't modify the object given as the first argument. But we'll get into that in a further notebook.
+"""
 
 # ╔═╡ 8fbfb20a-5f5e-422e-9b59-90513050b3b8
 md"#### At the beginning of the array:"
@@ -275,6 +286,13 @@ begin
 	popfirst!(vectmp4)
 	vectmp4
 end
+
+# ╔═╡ 1cb1ec65-48d9-47f1-8a3d-f3767fa03ad2
+md"""
+!!! note
+
+We are still applying the `begin .. end` trick here because we're inside of a Pluto notebook (and it's the case of many following functions that only exist in a mutating form). Just use `pushfirst!(vec,0)` and `popfirst!(vec)` outside of Pluto.
+"""
 
 # ╔═╡ 33c34e8f-c5b6-43a8-a329-12fc55949a2e
 md"#### Anywhere in the array:"
@@ -465,6 +483,7 @@ If you want more information, you can visit the [official documentation here](ht
 # ╟─c764ac39-8d2a-4fa1-b3f3-96a24ba5527d
 # ╟─9fc4cb37-69fd-446c-95fe-30abb7559601
 # ╠═47e8bdbc-ad36-447c-8f79-f78626814be1
+# ╟─b0d77b3e-9674-449a-be5f-a5790a4d4089
 # ╟─d94f73bb-0e3f-42ea-8e8f-7e3e982836fa
 # ╠═23a8f2fa-9153-4eec-a876-db97a999b943
 # ╟─f530fe3b-1b0d-472a-b330-d12a46e68c22
@@ -472,6 +491,7 @@ If you want more information, you can visit the [official documentation here](ht
 # ╟─60608c63-2b59-474e-92a2-3800e6254792
 # ╠═f153b213-1d4a-4481-ba83-29b1f8131963
 # ╠═a99f7d96-654a-46b0-91a2-9120ab30af44
+# ╟─1cb1ec65-48d9-47f1-8a3d-f3767fa03ad2
 # ╟─33c34e8f-c5b6-43a8-a329-12fc55949a2e
 # ╟─fad8c97c-7cd6-4c30-bc44-4242653c0e96
 # ╠═56d63b69-e6bf-4140-8494-9ad36af2382c

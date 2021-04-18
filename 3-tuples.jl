@@ -1,11 +1,8 @@
 ### A Pluto.jl notebook ###
-# v0.12.20
+# v0.14.2
 
 using Markdown
 using InteractiveUtils
-
-# ╔═╡ 29c0f862-bbec-4ca6-938a-852fb5f9d802
-using BenchmarkTools
 
 # ╔═╡ 44907d2e-961d-11eb-10df-0941e04d14cb
 md"""
@@ -14,7 +11,7 @@ md"""
 
 # ╔═╡ 554b0cbc-0369-41a2-ab8c-318df9f055de
 md"""
-A Tuple is, like an Array, an ordered set of elements. But there are a few differences between them: tuples are immutable, and they track the type of **each** element they hold. And this is exactly what makes tuples better for performance! 
+A Tuple is, like an Array, an ordered set of elements. But there are a few differences between them: tuples are immutable, and they track the type of **each** element they hold. And this is exactly what makes tuples better for performance (_in some cases_)!
 
 Immutability means that once a tuple is declared, we can't change its values.
 """
@@ -42,7 +39,7 @@ Tuple{Float64, Float64}((1,2.0))
 
 # ╔═╡ 9b5bed59-e176-4088-a324-bae601f2f647
 md"""
-But it only works if the types of the elements match the one given, or if there's a method for converting one from the other. 
+But it only works if the types of the elements match the one given, or if there's a method for converting one from the other.
 
 To get the type of the values stored in a tuple, we can use `typeof`:
 """
@@ -54,7 +51,7 @@ typeof(t)
 md"""
 ## Indexing
 
-Because the values are ordered in Tuples, we can index them like arrays: 
+Because the values are ordered in Tuples, we can index them like arrays:
 
 """
 
@@ -94,27 +91,11 @@ md"""
 [This video](https://www.youtube.com/watch?v=OdQSWuG78Sk) from appskill is also very nice. It is a little bit less technical than the one presented by C. Rackauckas. Note that it is presented for Python, but it is the same for Julia.
 """
 
-# ╔═╡ a08d941f-c6c5-4705-b88c-c8f476cc9c64
+# ╔═╡ 27cdab0f-b63f-47a7-b41a-21526c4064fd
 md"""
-## Benchmarking
+!!! note
+	Tuples are very fast for small collections (<32), but slower for larger ones. Prefer using [`StaticArrays.jl`](https://github.com/JuliaArrays/StaticArrays.jl) for this purpose.
 """
-
-# ╔═╡ 54902a8d-d3a4-45c0-93f8-cde0015b8c0e
-md"""
-Let's benchmark the sum of an array from 1 to 1.000.000 either as an array or as a tuple:
-"""
-
-# ╔═╡ 4ef6e11c-3c07-4397-be31-4205f7dd543d
-array_struct = collect(1:1000000)
-
-# ╔═╡ ea754882-1f29-44dc-ad54-a1b790cc7feb
-tuple_struct = (array_struct...)
-
-# ╔═╡ 811722d3-061a-493d-b2d6-d1ea97d0f2a8
-@benchmark sum(array_struct) # Array
-
-# ╔═╡ 20171623-450b-4bee-ba07-14964e654d70
-@benchmark sum(tuple_struct) # Tuple
 
 # ╔═╡ ec30fbeb-c3eb-4840-a160-b88e88da098d
 md"""
@@ -123,7 +104,7 @@ md"""
 
 # ╔═╡ f04632ef-7317-464f-a3f4-569605bddb58
 md"""
-Named tuples associate a name to each value of a tuple. It is declared using a key and a value such as: `(key1 = value1, key2 = value2)`. For example we can declare a named tuple as follows: 
+Named tuples associate a name to each value of a tuple. It is declared using a key and a value such as: `(key1 = value1, key2 = value2)`. For example we can declare a named tuple as follows:
 """
 
 # ╔═╡ 0fec09f2-a7c2-40da-87ae-16a86cb56b71
@@ -131,7 +112,7 @@ fruits = (apples = 2, bananas = 10, mangos = 3)
 
 # ╔═╡ e96e0d8b-f9f2-46e5-9186-673490b8f200
 md"""
-To declare a named tuple with a single value, use a coma after the value with no following values, *e.g.*: 
+To declare a named tuple with a single value, use a coma after the value with no following values, *e.g.*:
 """
 
 # ╔═╡ 946c4244-43d5-49f7-a590-7505d34c2214
@@ -177,7 +158,7 @@ keys(fruits)
 
 # ╔═╡ f2f87137-9e05-4e65-92a2-2ab231722f3e
 md"""
-And to get all the values, we can use `values()`: 
+And to get all the values, we can use `values()`:
 """
 
 # ╔═╡ 260a279c-3ba2-4dee-96f2-4067e786eaf0
@@ -261,7 +242,6 @@ md"""
 
 # ╔═╡ Cell order:
 # ╟─44907d2e-961d-11eb-10df-0941e04d14cb
-# ╠═29c0f862-bbec-4ca6-938a-852fb5f9d802
 # ╟─554b0cbc-0369-41a2-ab8c-318df9f055de
 # ╟─f44c3eec-305d-4945-9715-87a0d26fa2d8
 # ╟─82950568-8a20-486d-9d3d-a282f6a3d895
@@ -279,12 +259,7 @@ md"""
 # ╟─f75696b8-7881-4364-a6cf-b5250b5bc1b0
 # ╟─34826080-d034-49d4-bac7-b7ebd8bdbe7e
 # ╟─7fd450c5-cef6-428d-a6ec-c9543855264d
-# ╟─a08d941f-c6c5-4705-b88c-c8f476cc9c64
-# ╟─54902a8d-d3a4-45c0-93f8-cde0015b8c0e
-# ╠═4ef6e11c-3c07-4397-be31-4205f7dd543d
-# ╠═ea754882-1f29-44dc-ad54-a1b790cc7feb
-# ╠═811722d3-061a-493d-b2d6-d1ea97d0f2a8
-# ╠═20171623-450b-4bee-ba07-14964e654d70
+# ╟─27cdab0f-b63f-47a7-b41a-21526c4064fd
 # ╟─ec30fbeb-c3eb-4840-a160-b88e88da098d
 # ╟─f04632ef-7317-464f-a3f4-569605bddb58
 # ╠═0fec09f2-a7c2-40da-87ae-16a86cb56b71

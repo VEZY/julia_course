@@ -13,7 +13,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
 
 1. Variables and basic types in Julia
 
-    [![Variables and basic types link to video](http://img.youtube.com/vi/Jip2Ym5DsxQ/0.jpg)](https://youtu.be/Jip2Ym5DsxQ "Variables and basic types")
+    [![Variables and basic types: link to video](http://img.youtube.com/vi/Jip2Ym5DsxQ/0.jpg)](https://youtu.be/Jip2Ym5DsxQ "Variables and basic types")
 
     ```julia
     Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/1-variables_and_basic_types.jl")
@@ -21,13 +21,15 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
 
 1. Arrays
 
-    [![Tuples link to video](http://img.youtube.com/vi/VKjIRDBk6qo/0.jpg)](https://youtu.be/VKjIRDBk6qo "Tuples")
+    [![Arrays: link to video](http://img.youtube.com/vi/VKjIRDBk6qo/0.jpg)](https://youtu.be/VKjIRDBk6qo "Arrays")
 
     ```julia
     Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/2-arrays.jl")
     ```
 
-2. Tuples
+1. Tuples
+
+    [![Tuples: link to video](http://img.youtube.com/vi/pYTw1LGbRm0/0.jpg)](https://youtu.be/pYTw1LGbRm0 "Tuples")
 
     ```julia
     Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/3-tuples.jl")

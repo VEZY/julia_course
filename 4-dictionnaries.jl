@@ -32,11 +32,11 @@ dict = Dict("🍌" => 4, "🍓" => 15)
 
 # ╔═╡ 94d9dbe3-4042-4bdf-9d14-7acc165514cc
 md"""
-As we can see a dictionary is declared using the `Dict` function, and then elements are declared using the `key => value` pair syntax. The keys can be of any type as long as they all share the same type (*i.e.* all `String`). The values can be of any type, and the type of the values can differ between one and the other (although it is not recommanded for performance reasons). For example the same using symbols as keys, and integer and string for the values:
+As we can see a dictionary is declared using the `Dict` function, and then elements are declared using the `key => value` pair syntax. The keys and values can be of any type, and their type can differ between one key or value and another (although it is not recommanded for performance reasons). For example we can use symbols and strings for the keys, and integer and string for the values:
 """
 
 # ╔═╡ 874a6524-8f3c-4bc0-bc6e-9e8fec402e56
-Dict(:🍌 => 4, :🍓 => "this is not the season")
+Dict(:🍌 => 4, "🍓" => "this is not the season", 12 => 12.0)
 
 # ╔═╡ 45835257-6034-4d64-be18-68c966d96603
 md"""
@@ -84,8 +84,8 @@ md"""
 We can declare an empty dictionary using `Dict()`, and even constrain the types of the keys and the values that will be added as follows:
 """
 
-# ╔═╡ de471d5a-3ca7-4f6a-b955-ec38cc88660b
-constrained_dict = Dict{String,Float64}()
+# ╔═╡ 14ac3d30-c0bc-4543-8e61-ccb1bfcd9287
+constrained_dict = Dict{String, Float64}()
 
 # ╔═╡ e1856197-b467-465c-ba4c-032282c989eb
 constrained_dict["a"] = 2
@@ -279,7 +279,7 @@ begin
 	delete!(dict_tmp3, "🍌")
 end
 
-# ╔═╡ 88210fb3-02f6-420d-b6a0-de91ec9fcfc5
+# ╔═╡ cdd99268-f499-40ff-b9ad-f29bef3c05ed
 dict_tmp3
 
 # ╔═╡ a6a378c0-f3bc-4ce9-8e3d-29b3caf43ab5
@@ -339,6 +339,16 @@ Difference between two dictionaries:
 # ╔═╡ 11c0414b-ef75-4211-ad69-9e402f6061c9
 setdiff(dict2, dict_tmp)
 
+# ╔═╡ c3a5e91d-d7d0-4abe-b7e6-e0c08780657c
+md"""
+These functions are related to mathematical sets.
+
+![](https://upload.wikimedia.org/wikipedia/commons/8/86/A_union_B.svg)[^1]
+
+The inclusion-exclusion principle is used to calculate the size of the union of sets: the size of the union is the size of the two sets, minus the size of their intersection.
+
+[^1]: See markdown link for source.  """
+
 # ╔═╡ Cell order:
 # ╟─d794dbb2-0254-4808-80ea-75f184586ad8
 # ╟─3a242ea0-a518-11eb-0c88-d541f2d52fb8
@@ -356,7 +366,7 @@ setdiff(dict2, dict_tmp)
 # ╠═bb28ae8d-5bc2-4056-9c75-9983362c6716
 # ╟─602bc23f-1acc-44a5-8986-cadea9c7f461
 # ╟─73dac266-f783-4406-91c7-27a08c4e4e60
-# ╠═de471d5a-3ca7-4f6a-b955-ec38cc88660b
+# ╠═14ac3d30-c0bc-4543-8e61-ccb1bfcd9287
 # ╠═e1856197-b467-465c-ba4c-032282c989eb
 # ╠═83c526bb-5db2-4a30-bcfa-7476faaf9f55
 # ╠═7e1dbf59-df69-417a-8578-b34bb403848d
@@ -401,7 +411,7 @@ setdiff(dict2, dict_tmp)
 # ╟─2b0361ec-b65b-426c-80a5-b5bfa95a6730
 # ╟─bab7580c-228e-4bd1-91c5-e476f1c97ad5
 # ╠═f62a1379-8afe-48a6-9466-a9235199cfdb
-# ╠═88210fb3-02f6-420d-b6a0-de91ec9fcfc5
+# ╠═cdd99268-f499-40ff-b9ad-f29bef3c05ed
 # ╟─a6a378c0-f3bc-4ce9-8e3d-29b3caf43ab5
 # ╟─77496c2f-4e8f-44b6-bddb-1763ac179398
 # ╠═32785fd3-0adb-4b61-a8dc-c920904d66ea
@@ -414,3 +424,4 @@ setdiff(dict2, dict_tmp)
 # ╠═95aba192-6027-46d2-8cf8-6222ddbed0d7
 # ╟─b0d12465-c1ba-4520-a0d4-321b86219845
 # ╠═11c0414b-ef75-4211-ad69-9e402f6061c9
+# ╟─c3a5e91d-d7d0-4abe-b7e6-e0c08780657c

@@ -35,6 +35,12 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/3-tuples.jl")
     ```
 
+1. Dictionaries
+
+    ```julia
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/4-dictionnaries.jl")
+    ```
+
 ## Usage
 
 ### Pluto

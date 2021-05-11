@@ -37,6 +37,8 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
 
 1. Dictionaries
 
+    [![Dictionaries: link to video](http://img.youtube.com/vi/3Anx7csWSkc/0.jpg)](https://youtu.be/3Anx7csWSkc "Dictionaries")
+
     ```julia
     Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/4-dictionnaries.jl")
     ```

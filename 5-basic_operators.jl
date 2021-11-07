@@ -8,7 +8,7 @@ using InteractiveUtils
 md"""
 # Basic operators
 
-Operators are symbols used to perform a given mathematical operation. Some are very easy and straighforward, some are a little bit more complicated.
+Operators are symbols used to perform for example a basic mathematical operation. Some are very easy and straighforward, some are a little bit more complicated.
 
 Let's start by the simple ones.
 
@@ -191,7 +191,7 @@ Is equivalent to this:
 """
 
 # ╔═╡ 0a8e65d5-7043-4f66-8987-c2e56e09d223
-!(2 < 1)
+!(2 <= 1)
 
 # ╔═╡ 729ae192-df5b-47a3-a245-9d40e8014f5a
 md"""

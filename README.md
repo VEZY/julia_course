@@ -100,15 +100,11 @@ And choose "Download ZIP":
 
 ![](www/Download_ZIP.png)
 
-Then, unzip the file, and open the directory in VS Code, or just open Julia in this repository.
-
-Finally, enter the package manager mode in Julia by pressing `]` in the REPL and run the following command:
+Then, unzip the file, and open the directory in VS Code, or just open Julia in a command prompt / terminal in this repository and use *e.g.*:
 
 ```julia
-activate .
-instantiate
+using Pluto
+Pluto.run(notebook = "1-variables_and_basic_types.jl")
 ```
-
-It will first activate the project, and then instantiate it, *i.e* download all packages used for this project.
 
 The resources are numbered, and their titles correspond to the Youtube videos they relate to.

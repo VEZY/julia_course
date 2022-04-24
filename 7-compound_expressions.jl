@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.18.0
+# v0.19.2
 
 using Markdown
 using InteractiveUtils
@@ -110,7 +110,7 @@ z = 1
 
 # ╔═╡ 4599c507-64aa-4f25-8cee-2059e54a9c0f
 res = let z = z
-	z = 2
+	z = z + 1
 end
 
 # ╔═╡ 44dbb163-871e-40d7-becf-eb916112f227

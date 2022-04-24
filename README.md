@@ -4,7 +4,6 @@ This repository is a collection of resources to teach everything about the Julia
 
 These resources are used in the [Julia: from total beginner to power user](https://www.youtube.com/watch?v=ZZJJgQ2IzQQ&list=PLLiJ249IkzRFxZGALbKy75_ZyHxYCUmuk) Youtube playlist.
 
-
 ## Direct links to the notebooks
 
 You can use the notebooks either by using the direct links provided here, or by downloading/cloning the repository (see below).
@@ -41,6 +40,22 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
 
     ```julia
     Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/4-dictionnaries.jl")
+    ```
+
+1. Basic operators
+
+    [![Basic operators: link to video](http://img.youtube.com/vi/k2aGzLvN4uA/0.jpg)](https://youtu.be/k2aGzLvN4uA "Basic operators")
+
+    ```julia
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/5-basic_operators.jl")
+    ```
+
+1. String operators
+
+    [![Basic operators: link to video](http://img.youtube.com/vi/yZwHgdAEx5Q/0.jpg)](https://youtu.be/yZwHgdAEx5Q "Strings")
+
+    ```julia
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/6-string_operators.jl")
     ```
 
 ## Usage

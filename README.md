@@ -52,10 +52,18 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
 
 1. String operators
 
-    [![Basic operators: link to video](http://img.youtube.com/vi/yZwHgdAEx5Q/0.jpg)](https://youtu.be/yZwHgdAEx5Q "Strings")
+    [![String operators: link to video](http://img.youtube.com/vi/yZwHgdAEx5Q/0.jpg)](https://youtu.be/yZwHgdAEx5Q "Strings")
 
     ```julia
     Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/6-string_operators.jl")
+    ```
+
+1. Compound expressions (begin and let)
+
+    [![begin and let: link to video](http://img.youtube.com/vi/zCvYmbP1esc/0.jpg)](https://youtu.be/zCvYmbP1esc "begin and let")
+
+    ```julia
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/7-compound_expressions.jl")
     ```
 
 ## Usage

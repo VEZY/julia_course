@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.18.0
+# v0.19.3
 
 using Markdown
 using InteractiveUtils
@@ -28,7 +28,7 @@ Like any other programming language, Julia provides expressions for controlling 
 
 ## If/else
 
-The `if` statement helps us execute some come only if the condition evaluates to `true`. It is written with the form:
+The `if` statement helps us execute some code only if a condition evaluates to `true`. It is written with the form:
 
 ```julia
 if condition
@@ -47,19 +47,19 @@ Let's simulate the day with a variable called `today` that numbers days from 1 t
 
 # ╔═╡ 6be3a5b2-8382-41c3-b9dd-8a7b4ae83e34
 if today == Wednesday
-	"Move! Move! Move! It's Wednesday! Gym day!"
+	"🏃Move! Move! Move! 🐸 It's Wednesday 🐸! Gym day!🏃"
 end
 
 # ╔═╡ 1ddfd261-11a0-436f-a47e-077889e8b2cb
 md"""
-See what happens when we move the slider to the third day? The condition ``today == Wednesday` evaluates to `true` so the code inside the if...end expression is evaluated.
+See what happens when we move the slider to the third day? The condition `today == Wednesday` evaluates to `true` so the code inside the if...end expression is evaluated.
 
 But we can make it even better by outputing a value when it is not wednesday. We could add an `if` statement below and test if the day is not wednesday, but an even shorter way to do it is by using the `else` statement as follows:  
 """
 
 # ╔═╡ b1c91a21-94ee-470a-ad86-ea9d2f60859d
 if today == Wednesday
-	"🏃Move! Move! Move! It's Wednesday! Gym day!🏃"
+	"🏃Move! Move! Move! 🐸 It's Wednesday 🐸! Gym day!🏃"
 else
 	"😴Chill out it is not Wednesday yet😴"
 end
@@ -73,9 +73,9 @@ The `else` statement helps us execute another chunk of code if the condition is 
 if today == Monday
 	"🏃Move! Move! Move! It's Monday! Gym day!🏃"
 elseif today == Wednesday
-	"🏃Move! Move! Move! It's Wednesday! Gym day!🏃"
+	"🏃Move! Move! Move! 🐸 It's Wednesday 🐸! Gym day!🏃"
 else
-	"😴Chill out it is not Wednesday yet😴"
+	"😴Chill out it is not Monday or Wednesday😴"
 end
 
 # ╔═╡ 524dd17a-21b6-45ae-b0a7-3f4c9322bde0
@@ -87,27 +87,35 @@ And the nice thing is that we can chain them as we want:
 if today == Monday
 	"🏃Move! Move! Move! It's Monday! Gym day!🏃"
 elseif today == Wednesday
-	"🏃Move! Move! Move! It's Wednesday! Gym day!🏃"
+	"🏃Move! Move! Move! 🐸 It's Wednesday 🐸! Gym day!🏃"
 elseif today == Friday
 	"🏃Move! Move! Move! It's Friday! Gym day!🏃"
 else
-	"😴Chill out it is not Wednesday yet😴"
+	"😴Chill out it is not Gym day yet😴"
 end
 
 # ╔═╡ aa66bcad-c9d4-4a05-9e6b-7202f9d4f37b
 md"""
 !!! note
-	In general it is best to avoid repeating code, so a better way to code the above would be:
+	In general it is considered best practice avoiding code repetition, so a better approach would be:
 	```julia
 
 	if today in [Monday, Wednesday, Friday]
-		"🏃Move! Move! Move! It's \$(Dates.dayname(today)) ! Gym day!🏃"
+		"🏃Move! Move! Move! It's $(Dates.dayname(today))! Gym day!🏃"
 	else
-		"😴Chill out it is not Wednesday yet😴"
+		"😴Chill out it is not Gym day yet😴"
 	end
 
 	```
 """
+
+# ╔═╡ c1eb6257-efc9-48f7-8361-537808e049e3
+
+if today in [Monday, Wednesday, Friday]
+	"🏃Move! Move! Move! It's $(Dates.dayname(today))! Gym day!🏃"
+else
+	"😴Chill out it is not Gym day yet😴"
+end
 
 # ╔═╡ f23ae4cb-c511-4c85-b6b6-a3b497e1f0f1
 md"""
@@ -127,7 +135,7 @@ Here is an example:
 """
 
 # ╔═╡ 054086d5-9893-46af-bd5d-92c4958eafbe
-today == Wednesday ? "It's Wednesday!" : "It's not wednesday"
+today == Wednesday ? "🐸 It's Wednesday 🐸!" : "It's not wednesday"
 
 # ╔═╡ 4d3c5c93-f37a-451e-9b44-6cda6e5167d8
 md"""
@@ -163,48 +171,11 @@ today == Wednesday && "It's Wednesday!"
 
 # ╔═╡ 469a5e6c-b513-40c0-98b5-32072c2c1f1d
 md"""
-The expression `"today == Wednesday"` is evalutated, if it is `true` the `"It's Wednesday!"` expression is evaluted, and if it is `false`, it doesn't evaluate it and continue.
+The expression `"today == Wednesday"` is evaluated, if it is `true` the `"It's Wednesday!"` expression is evaluted, and if it is `false`, it doesn't evaluate it and continue to the next line of code.
 """
 
 # ╔═╡ de5ca094-d8a1-4216-a261-382db303dfad
 today == Wednesday || "It's not Wednesday yet."
-
-# ╔═╡ 0409a95a-fe40-4c3d-9e7e-bb52276c596f
-md"""
-## For loops
-
-For loops helps us execute code several times over. They are written like so:
-
-```julia
-for i in range
-	[...]
-end
-```
-
-The `for` loop can be read as:
-> for each `i` value in `range`, execute the code in `[...]`:
-
-The `range` expression can be any iterable object. It usually a range, a vector, tuple or string. 
-
-Let's start with a simple range example:
-"""
-
-# ╔═╡ ebb84214-1acd-4cbd-a4c3-f0c3584a27d1
-md"""
-What happens here? Well the for loop is executed 3 times, one time for each value in the range 1:3. Then the Julia code inside the loop simply prints the value of i at each iteration, leading to the output: 1 2 3. 
-
-!!! note
-	We wrap our for loop in a `with_terminal` statement because else Pluto wouldn't show the output of `println`. But no need to do this if you're using Julia directly from the terminal or from an IDE like VS Code.
-"""
-
-# ╔═╡ c8d5b5c1-780c-443a-a367-4f76a351eb98
-
-
-# ╔═╡ 9c9d13b9-7ef0-4a2a-ba8f-e605639abc5a
-
-
-# ╔═╡ dab76fe5-5a2d-4a63-ba6c-3b734338b2c0
-
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -434,6 +405,7 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╟─524dd17a-21b6-45ae-b0a7-3f4c9322bde0
 # ╠═21442482-0f68-499a-b072-ac219fbbf0ce
 # ╟─aa66bcad-c9d4-4a05-9e6b-7202f9d4f37b
+# ╠═c1eb6257-efc9-48f7-8361-537808e049e3
 # ╟─f23ae4cb-c511-4c85-b6b6-a3b497e1f0f1
 # ╠═054086d5-9893-46af-bd5d-92c4958eafbe
 # ╟─4d3c5c93-f37a-451e-9b44-6cda6e5167d8
@@ -441,10 +413,5 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╠═822d86e2-be43-4dec-bbce-279d4c126973
 # ╟─469a5e6c-b513-40c0-98b5-32072c2c1f1d
 # ╠═de5ca094-d8a1-4216-a261-382db303dfad
-# ╠═0409a95a-fe40-4c3d-9e7e-bb52276c596f
-# ╠═ebb84214-1acd-4cbd-a4c3-f0c3584a27d1
-# ╠═c8d5b5c1-780c-443a-a367-4f76a351eb98
-# ╠═9c9d13b9-7ef0-4a2a-ba8f-e605639abc5a
-# ╠═dab76fe5-5a2d-4a63-ba6c-3b734338b2c0
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

@@ -66,6 +66,14 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/7-compound_expressions.jl")
     ```
 
+1. Conditional statements (if...else...)
+
+    [![Conditional statements: link to video](http://img.youtube.com/vi/qNK9C3ewoGE/0.jpg)](https://youtu.be/qNK9C3ewoGE "Conditional statements")
+
+    ```julia
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/8-conditional_statements.jl")
+    ```
+
 ## Usage
 
 ### Pluto

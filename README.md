@@ -74,6 +74,15 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/8-conditional_statements.jl")
     ```
 
+
+1. For loops (eachindex, enumerate, variable scope...)
+
+    [![For loops: link to video](http://img.youtube.com/vi/wTiVtP5tYPY/0.jpg)](https://youtu.be/wTiVtP5tYPY "Conditional statements")
+
+    ```julia
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/9-for_loops.jl")
+    ```
+
 ## Usage
 
 ### Pluto

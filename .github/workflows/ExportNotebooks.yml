@@ -51,15 +51,15 @@ jobs:
         with:
           path: generation_report.html
 
-      - name: 🔀 Combine semesters into single site
-        run: |
-          mkdir www
-          mv PlutoPages/_site www/Fall23
-          mv PlutoPages/extra_outputs/* www
+      # - name: 🔀 Combine semesters into single site
+      #   run: |
+      #     mkdir www
+      #     mv PlutoPages/_site www/Fall23
+      #     mv PlutoPages/extra_outputs/* www
 
       - name: 🚀 Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: output
-          FOLDER: www
+          FOLDER: PlutoPages/_site

@@ -142,11 +142,11 @@ Watch [this video](https://www.youtube.com/watch?v=jdEqGOv8ycc&list=PLLiJ249IkzR
 
 If you want to use the resources from this repository locally, the best way is to download a local copy (or clone it if you know GIT). To do so, click on the green button in this page called "Code":
 
-![](www/clone_button.png)
+![](www_readme/clone_button.png)
 
 And choose "Download ZIP":
 
-![](www/Download_ZIP.png)
+![](www_readme/Download_ZIP.png)
 
 Then, unzip the file, and open the directory in VS Code, or just open Julia in a command prompt / terminal in this repository and use *e.g.*:
 

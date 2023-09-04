@@ -15,7 +15,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     [![Variables and basic types: link to video](http://img.youtube.com/vi/Jip2Ym5DsxQ/0.jpg)](https://youtu.be/Jip2Ym5DsxQ "Variables and basic types")
 
     ```julia
-    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/1-variables_and_basic_types.jl")
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/1-variables_and_basic_types.jl")
     ```
 
 1. Arrays
@@ -23,7 +23,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     [![Arrays: link to video](http://img.youtube.com/vi/VKjIRDBk6qo/0.jpg)](https://youtu.be/VKjIRDBk6qo "Arrays")
 
     ```julia
-    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/2-arrays.jl")
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/2-arrays.jl")
     ```
 
 1. Tuples
@@ -31,7 +31,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     [![Tuples: link to video](http://img.youtube.com/vi/pYTw1LGbRm0/0.jpg)](https://youtu.be/pYTw1LGbRm0 "Tuples")
 
     ```julia
-    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/3-tuples.jl")
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/3-tuples.jl")
     ```
 
 1. Dictionaries
@@ -39,7 +39,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     [![Dictionaries: link to video](http://img.youtube.com/vi/3Anx7csWSkc/0.jpg)](https://youtu.be/3Anx7csWSkc "Dictionaries")
 
     ```julia
-    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/4-dictionnaries.jl")
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/4-dictionnaries.jl")
     ```
 
 1. Basic operators
@@ -47,7 +47,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     [![Basic operators: link to video](http://img.youtube.com/vi/k2aGzLvN4uA/0.jpg)](https://youtu.be/k2aGzLvN4uA "Basic operators")
 
     ```julia
-    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/5-basic_operators.jl")
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/5-basic_operators.jl")
     ```
 
 1. String operators
@@ -55,7 +55,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     [![String operators: link to video](http://img.youtube.com/vi/yZwHgdAEx5Q/0.jpg)](https://youtu.be/yZwHgdAEx5Q "Strings")
 
     ```julia
-    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/6-string_operators.jl")
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/6-string_operators.jl")
     ```
 
 1. Compound expressions (begin and let)
@@ -63,7 +63,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     [![begin and let: link to video](http://img.youtube.com/vi/zCvYmbP1esc/0.jpg)](https://youtu.be/zCvYmbP1esc "begin and let")
 
     ```julia
-    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/7-compound_expressions.jl")
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/7-compound_expressions.jl")
     ```
 
 1. Conditional statements (if...else...)
@@ -71,7 +71,7 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     [![Conditional statements: link to video](http://img.youtube.com/vi/qNK9C3ewoGE/0.jpg)](https://youtu.be/qNK9C3ewoGE "Conditional statements")
 
     ```julia
-    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/8-conditional_statements.jl")
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/8-conditional_statements.jl")
     ```
 
 
@@ -80,7 +80,15 @@ To use the direct link, open julia, then type `using Pluto`, and execute the lin
     [![For loops: link to video](http://img.youtube.com/vi/wTiVtP5tYPY/0.jpg)](https://youtu.be/wTiVtP5tYPY "Conditional statements")
 
     ```julia
-    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/9-for_loops.jl")
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/9-for_loops.jl")
+    ```
+
+2. Functions (short and long forms, do syntax, anonymous functions...)
+
+    [![Functions: link to video](http://img.youtube.com/vi/xxx/0.jpg)](https://youtu.be/xxx "Functions")
+
+    ```julia
+    Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/10-functions.jl")
     ```
 
 ## Usage
@@ -125,7 +133,7 @@ Pluto.run(notebook = "1-variables_and_basic_types.jl")
 And a third way is by using a notebook directly from the internet by passing its link, *e.g.*:
 
 ```julia
-Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/1-variables_and_basic_types.jl")
+Pluto.run(notebook = "https://raw.githubusercontent.com/VEZY/julia_course/main/content/1-variables_and_basic_types.jl")
 ```
 
 Watch [this video](https://www.youtube.com/watch?v=jdEqGOv8ycc&list=PLLiJ249IkzRFxZGALbKy75_ZyHxYCUmuk&index=4) if you need more details about how to use Pluto.
@@ -148,3 +156,21 @@ Pluto.run(notebook = "1-variables_and_basic_types.jl")
 ```
 
 The resources are numbered, and their titles correspond to the Youtube videos they relate to.
+
+## Acknowledgements
+
+This repository uses the [template](https://github.com/greimel/pluto-course-template) provided by the **Computational Thinking** course [(computationalthinking.mit.edu)](https://computationalthinking.mit.edu)
+
+## Build the website
+
+> From PlutoPages/Website maintenance.md
+
+Open this repository in VS Code, and install the recommended extensions.
+
+To start running the development server, open the VS Code *command palette* (press `Cmd+Shift+P`), and search for **`Tasks: Run Task`**, then **`PlutoPages: run development server`**. The first run can take some time, as it builds up the notebook outputs cache. Leave it running.
+
+This will start two things in parallel: the PlutoPages.jl notebook (which generates the website), and a static file server (with Deno_jll). It will open two tabs in your browser: one is the generation dashboard (PlutoPages), the other is the current site preview (Deno_jll).
+ 
+Whenever you edit a file, PlutoPages will automatically regenerate! Refresh your browser tab. If it does not pick up the change, go to the generation dashboard and click the "Read input files again" button.
+
+This workflow is recommended for writing static content, styles, and for site maintenance. But for writing Pluto notebooks, it's best to prepare the notebook first, and then run the site (because it re-runs the entire notebook on any change).

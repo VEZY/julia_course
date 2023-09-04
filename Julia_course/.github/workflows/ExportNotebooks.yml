@@ -1,0 +1,65 @@
+name: Export Pluto notebooks & Deploy
+permissions:
+    contents: write
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+concurrency:
+    group: export
+    cancel-in-progress: true
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Fall 23 source
+              uses: actions/checkout@v2
+
+            - name: 🙌 Install Julia
+              uses: julia-actions/setup-julia@v1
+              with:
+                  version: "~1.10.0-0"
+
+            - name: ⏱ Cache notebook states
+              uses: actions/cache@v2
+              with:
+                path: _cache
+                key: ${{ runner.os }}-pluto_state_cache-v3-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}-${{ github.run_id }}
+                restore-keys: |
+                    ${{ runner.os }}-pluto_state_cache-v3-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}
+
+            - name: ⏱ Cache .julia
+              uses: actions/cache@v2
+              with:
+                path: ~/.julia
+                key: ${{ runner.os }}-dotjulia-v1-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}-${{ github.run_id }}
+                restore-keys: |
+                    ${{ runner.os }}-dotjulia-v1-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}
+
+            - name: 🪴 Generate site
+              run: julia --project=PlutoPages/pluto-deployment-environment -e '
+                  import Pkg;
+                  Pkg.instantiate();
+
+                  include("./PlutoPages/generate.jl")'
+
+            - name: 📰 Upload site generation report
+              uses: actions/upload-artifact@v2
+              if: always()
+              with:
+                path: generation_report.html
+
+            - name: 🔀 Combine semesters into single site
+              run: |
+                mkdir www
+                mv PlutoPages/_site www/Fall23
+                mv PlutoPages/extra_outputs/* www
+
+            - name: 🚀 Deploy to GitHub Pages
+              uses: JamesIves/github-pages-deploy-action@releases/v3
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: output
+                  FOLDER: www

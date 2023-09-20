@@ -3,13 +3,13 @@
 
 #> [frontmatter]
 #> chapter = 1
-#> video = "https://youtu.be/xxxx"
-#> image = "http://img.youtube.com/vi/xxxx/0.jpg"
+#> video = "https://youtu.be/NdPMaDzpqW8"
+#> image = "http://img.youtube.com/vi/NdPMaDzpqW8/0.jpg"
 #> section = 10
 #> order = 10
 #> title = "Functions"
 #> layout = "layout.jlhtml"
-#> youtube_id = "xxxx"
+#> youtube_id = "NdPMaDzpqW8"
 #> description = ""
 #> tags = ["lecture", "course"]
 

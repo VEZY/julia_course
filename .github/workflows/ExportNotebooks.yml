@@ -14,7 +14,7 @@ jobs:
   build-and-deploy:
     runs-on: macos-latest
     steps:
-      - name: Checkout Fall 23 source
+      - name: Checkout website
         uses: actions/checkout@v2
 
       - name: 🙌 Install Julia
@@ -22,13 +22,13 @@ jobs:
         with:
           version: "1.9"
 
-      - name: ⏱ Cache notebook states
-        uses: actions/cache@v2
-        with:
-          path: _cache
-          key: ${{ runner.os }}-pluto_state_cache-v3-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}-${{ github.run_id }}
-          restore-keys: |
-            ${{ runner.os }}-pluto_state_cache-v3-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}
+      # - name: ⏱ Cache notebook states
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: _cache
+      #     key: ${{ runner.os }}-pluto_state_cache-v3-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}-${{ github.run_id }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-pluto_state_cache-v3-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}
 
       - name: ⏱ Cache .julia
         uses: actions/cache@v2

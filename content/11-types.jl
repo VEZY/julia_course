@@ -58,10 +58,7 @@ And that's also working for floating point numbers:
 """
 
 # ╔═╡ cd1e0d62-97b8-46f2-a168-d81cedc481fd
-height = 42.2 # A floating-point number
-
-# ╔═╡ 885675d0-c3cb-4475-88f9-ca547bc6d0c8
-typeof(height)
+typeof(42.2) # A floating-point number
 
 # ╔═╡ 308faa76-a954-4181-9458-90f2bd9e40b5
 md"""
@@ -69,14 +66,14 @@ And strings:
 """
 
 # ╔═╡ 1c2d862c-78d4-4b79-9541-ea4de71307a8
-name = "Alice" # A string
+typeof("Alice") # A string
 
-# ╔═╡ cf7ae56c-b3a3-41e8-9401-da356fd5aff7
-typeof(name)
+# ╔═╡ 743a93ab-f0e6-458c-9545-d9cdb8417a33
+typeof(:Alice)
 
 # ╔═╡ 96bbbaf3-2269-42f3-b270-4bbb97a586fa
 md"""
-Types are everywhere, even when you don't see them!
+Types are everywhere in Julia, even when you don't see them!
 
 When you use packages, you sometimes are working with types without knowing it. For example when you import the `Dates` package, you manipulate special kinds of types designed for dates, times, durations and periods:
 """
@@ -163,53 +160,111 @@ end
 # ╔═╡ 4744d217-a3bb-46d7-bc8d-7f8d15814b55
 md"""
 !!! note
-	Julia’s compiler is quite capable of inferring types automatically, so explicitly annotating types is often unnecessary.
+	Julia’s compiler infers types automatically, so explicitly annotating types is almost always unnecessary.
 """
 
 # ╔═╡ a1401ad2-bdc0-4cfb-b6d1-5b0d22ba99db
 md"""
 ## Defining Your Own Types
 
-### Composite Types (Immutable Structs)
+It is very easy to create your own type in Julia. A user-defined type is also known as a composite type or `struct` (short for structure). It is used as a custom structure to group one or more data fields into a single logical unit.
 
-Defining an immutable struct
+There are two kinds of composite types: immutable and mutable types. The difference is kind of self-explanatory: the values of the fields of an immutable type cannot be modified once the type is instantiated, while the values of a mutable type can. 
+
+### Immutable Structs
+
+To define an immutable type, you simply have to use the `struct` keyword followed by the name of your structure, and then list the names of the fields you want it to store. For example, if we would like a structure to store the names and ages of students, you should do the following:
 """
 
-# ╔═╡ d220e6e1-e679-49e1-9709-944d0cc5c875
-struct Point
-	x::Float64
-	y::Float64
+# ╔═╡ dd22b7e7-8001-47d9-852b-430ca0f1e243
+struct Student
+	first_name
+	last_name
+	age
 end
 
 # ╔═╡ a0611d47-26ff-49ff-9f74-25283d83c580
 md"""
-Creating an instance of Point
+Then when you want to store the data of a new student, you would instantiate an instance of your type like so:
 """
 
 # ╔═╡ 8b05a5d8-92e9-452a-a9f8-a1db17105c28
-p = Point(2.0, 3.5)
+person = Student("Carl", "Sagan", 20)
+
+# ╔═╡ 894af509-b775-4976-933e-ed0fc284fe53
+md"""
+We can check that our newly created `Student` has the right type:
+"""
 
 # ╔═╡ 2c27f764-cb28-46fa-bd98-67e1b1b56ead
-p_type = typeof(p)
+typeof(person)
 
-# ╔═╡ 45a627bf-c8a6-474a-a6be-9f25b9351e6f
-p
+# ╔═╡ 6810bb78-519d-4e99-85b2-1a239ee48f03
+md"""
+We can also give other types of values to `Student`, such as a Symbol instead of a String:
+"""
+
+# ╔═╡ a8ce6943-e6f1-40a7-b930-19f35e0046a8
+person_symbol = Student(:Carl, :Sagan, 20)
+
+# ╔═╡ 4ef3fe80-16e0-4fb1-94dd-e56240423771
+md"""
+This is because we didn't specify the types of the fields in the declaration of the `struct`, so Julia cannot restrict the types expected as inputs. We can check that using `fieldtypes` on our type:
+"""
+
+# ╔═╡ d7d8aea1-d08d-46a9-8fef-e4f7980fd3af
+fieldtypes(Student)
+
+# ╔═╡ 6b1bdbd8-f029-4a13-8236-b28548c9c664
+md"""
+It returns three `Any`, one for each field of the struct. This means that our type can take any kind of type for its fields.
+
+It is always preferable to give concrete types to the fields, though, so the compiler can optimize your code (see below). To do so, you have to annotate the fields like so:
+"""
+
+# ╔═╡ d220e6e1-e679-49e1-9709-944d0cc5c875
+struct Student2
+	first_name::String
+	last_name::String
+	name::Integer
+end
+
+# ╔═╡ 125fa6c1-8aad-4429-a0b0-48452266206f
+md"""
+This way we have to give a String for the names and an integer for the name, and Julia can optimize your code because it knows the types that are expected when its sees a `Student2`.
+
+If we check again with `fieldtypes`, we see that the types for the fields are now restricted to the ones we asked for:
+"""
+
+# ╔═╡ c6ba9d18-003d-466b-bec3-4333c2e8acd8
+fieldtypes(Student2)
+
+# ╔═╡ b66e4677-e546-4d2e-815a-f13ccced6c2b
+md"""
+If we try to make an instance of a `Student2` with other types for the fields, Julia will try to convert the types we give into the types that are expected, and if it fails, it will return an error, which is the case for our example:
+
+```julia
+Student2(:Carl, :Sagan, 20)
+
+MethodError: Cannot `convert` an object of type Symbol to an object of type String
+
+The function `convert` exists, but no method is defined for this combination of argument types.
+```
+"""
 
 # ╔═╡ 999f4253-b607-4666-bbc4-d970e4f8c275
 md"""
 ### Mutable Structs
 
-Defining a mutable struct
+Sometimes it is necessary to be able to change the values of the types of the field in a struct. To do so, we just have to mark the `struct` as mutable with the `mutable` keywork like so:
 """
 
 # ╔═╡ 01ee99ef-6bf8-4436-b760-5ed96875a897
-mutable struct MutablePoint
-	x::Float64
-	y::Float64
+mutable struct MutableStudent
+	first_name::String
+	last_name::String
+	age::Integer
 end
-
-# ╔═╡ 787a157c-7c6c-415b-8152-921521dcfb48
-
 
 # ╔═╡ 0251fa63-1a7f-4237-b1d3-de1d64f74845
 md"""
@@ -218,10 +273,10 @@ Creating and modifying an instance of MutablePoint:
 
 # ╔═╡ 410a3a44-2f4c-4eba-926c-9e85facb6c3d
 let
-mp = MutablePoint(2.0, 3.5)
-@show mp.x, mp.y
-mp.x = 5.0
-@show mp.x, mp.y
+cs = MutableStudent("Carl", "Sagan", 20)
+@show cs
+cs.age = 21
+@show cs
 end
 
 # ╔═╡ fbe7d700-aba1-4584-9ab2-118edf99805f
@@ -719,14 +774,13 @@ version = "17.4.0+2"
 # ╟─b05f56a0-ad69-11ef-34d8-d19daf838b87
 # ╠═b9b2e153-4b2e-408c-b356-29ac35e38d07
 # ╟─75c86ca4-2254-4796-9e72-26a59844ff58
-# ╟─7b337355-5f42-4307-95c3-1bfa4e338f5c
+# ╠═7b337355-5f42-4307-95c3-1bfa4e338f5c
 # ╟─0527198a-d5f1-4ff2-ba44-ef21b130ebab
 # ╟─887a1e82-e951-43a2-bdb2-c93bbc14589c
 # ╠═cd1e0d62-97b8-46f2-a168-d81cedc481fd
-# ╠═885675d0-c3cb-4475-88f9-ca547bc6d0c8
 # ╟─308faa76-a954-4181-9458-90f2bd9e40b5
 # ╠═1c2d862c-78d4-4b79-9541-ea4de71307a8
-# ╠═cf7ae56c-b3a3-41e8-9401-da356fd5aff7
+# ╠═743a93ab-f0e6-458c-9545-d9cdb8417a33
 # ╟─96bbbaf3-2269-42f3-b270-4bbb97a586fa
 # ╠═ace307a6-9e15-4183-b1ca-d81368f9d0bc
 # ╠═01a86af2-641b-4642-a7b6-51d340becc57
@@ -745,14 +799,22 @@ version = "17.4.0+2"
 # ╟─35895100-4699-4f8f-bc1f-7b08463b3f1e
 # ╟─4744d217-a3bb-46d7-bc8d-7f8d15814b55
 # ╟─a1401ad2-bdc0-4cfb-b6d1-5b0d22ba99db
-# ╠═d220e6e1-e679-49e1-9709-944d0cc5c875
+# ╠═dd22b7e7-8001-47d9-852b-430ca0f1e243
 # ╟─a0611d47-26ff-49ff-9f74-25283d83c580
 # ╠═8b05a5d8-92e9-452a-a9f8-a1db17105c28
+# ╟─894af509-b775-4976-933e-ed0fc284fe53
 # ╠═2c27f764-cb28-46fa-bd98-67e1b1b56ead
-# ╠═45a627bf-c8a6-474a-a6be-9f25b9351e6f
+# ╟─6810bb78-519d-4e99-85b2-1a239ee48f03
+# ╠═a8ce6943-e6f1-40a7-b930-19f35e0046a8
+# ╠═4ef3fe80-16e0-4fb1-94dd-e56240423771
+# ╠═d7d8aea1-d08d-46a9-8fef-e4f7980fd3af
+# ╟─6b1bdbd8-f029-4a13-8236-b28548c9c664
+# ╠═d220e6e1-e679-49e1-9709-944d0cc5c875
+# ╟─125fa6c1-8aad-4429-a0b0-48452266206f
+# ╠═c6ba9d18-003d-466b-bec3-4333c2e8acd8
+# ╟─b66e4677-e546-4d2e-815a-f13ccced6c2b
 # ╟─999f4253-b607-4666-bbc4-d970e4f8c275
 # ╠═01ee99ef-6bf8-4436-b760-5ed96875a897
-# ╠═787a157c-7c6c-415b-8152-921521dcfb48
 # ╟─0251fa63-1a7f-4237-b1d3-de1d64f74845
 # ╠═410a3a44-2f4c-4eba-926c-9e85facb6c3d
 # ╟─fbe7d700-aba1-4584-9ab2-118edf99805f
